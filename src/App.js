@@ -1,50 +1,21 @@
 import React, { Component } from 'react';
+import SearchBar from './SearchBar';
+import List from './List';
+import './App.css';
 
-import { connect } from 'react-redux';
-
-
-class APP extends Component {
-    addTask() {
-
-        this.props.onAddTask(this.taskInput.value);
-        this.taskInput.value === '';
-        console.log(this.props.store.tasks);
-    }
+export default class APP extends Component {
     render() {
         return (
             <div className="app_wrapper">
-                <input
-                    type="text"
-                    placeholder="Enter your goal"
-                    className="app_form_input"
-                    ref={(input) => { this.taskInput = input }}
-                />
-                <button onClick={this.addTask.bind(this)}>Add</button>
-                <ul>
-                    {this.props.store.tasks.map((task, id) =>
-                        <li key={id}>{task}</li>
-                    )}
-                </ul>
+                <SearchBar />
+                <section className="app_content">
+                    <aside className="app_sidebar">
+                    </aside>
+                    <main className="app_list">
+                        <List />
+                    </main>
+                </section>
             </div>
         )
     }
 }
-
-
-
-
-
-
-export default connect(
-    state => ({
-        store: state
-    }),
-    dispatch => ({
-        onAddTask: (task) => {
-            dispatch({
-                type: 'ADD_TASKS',
-                payload: task
-            });
-        }
-    })
-)(APP);

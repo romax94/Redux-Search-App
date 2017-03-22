@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import tasks from './tasks';
+import { filter, list } from './items';
 
 export default combineReducers({
-    tasks
+    filter,
+    list
 });
