@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import List from './List';
-import './App.css';
+import '../App.css';
 
 export default class APP extends Component {
     render() {

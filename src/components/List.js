@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class List extends Component {
+    componentDidMount() {
+        fetch('./data.json', {method: 'GET'}).then((response) => {
+            return response.json();
+        }).then((data) => {
+            console.log(data);
+        });
+    }
     render() {
         return (
             <ul>
