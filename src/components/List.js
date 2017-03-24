@@ -11,11 +11,13 @@ class List extends Component {
     }
     render() {
         return (
-            <ul>
-                {this.props.store.map(item =>
-                    <li key={item.id}>{item.name}</li>
-                )}
-            </ul>
+            <main className="app_list">
+                <ul>
+                    {this.props.store.map(item =>
+                        <li key={item.id}>{item.name}</li>
+                    )}
+                </ul>
+            </main>
         )
     }
 }
