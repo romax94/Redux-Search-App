@@ -2,11 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class List extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: []
+        }
+    }
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => {
+                this.state.users = data;
+                this.setState(this.state)
+            })
+    }
     render() {
+        console.log(this.state)
         return (
             <main className="app_list">
                 <ul>
-                    {this.props.store.map(item =>
+                    {this.state.users.map(item =>
                         <li key={item.id}>{item.name}</li>
                     )}
                 </ul>
@@ -17,7 +32,7 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-        store: state.list.filter(item => item.name.includes(state.filter))
+        users: state.list.filter(item => item.name.includes(state.filter))
     }
 };
 

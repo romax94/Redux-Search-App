@@ -12,5 +12,12 @@
     font-size: 18px;
 }
 .app_content {
+    display: flex;
     margin-top: 10px;
+}
+.app_sidebar {
+    width: 20%;
+}
+.app_list {
+    width: 80%;
 }
