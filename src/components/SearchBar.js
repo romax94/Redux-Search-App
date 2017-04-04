@@ -20,15 +20,15 @@ class SearchBar extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         store: state
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        onSearchList: (name) => {
+        onSearchList: name => {
             dispatch({
                 type: 'FILTER',
                 payload: name

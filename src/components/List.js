@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class List extends Component {
-    componentDidMount() {
-        fetch('./data.json', {method: 'GET'}).then((response) => {
-            return response.json();
-        }).then((data) => {
-            console.log(data);
-        });
-    }
     render() {
         return (
             <main className="app_list">
@@ -22,7 +15,7 @@ class List extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         store: state.list.filter(item => item.name.includes(state.filter))
     }
