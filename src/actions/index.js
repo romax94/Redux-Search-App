@@ -1,7 +1,14 @@
-import axios from 'axios';
+export const users = data => {
+    return {
+        type: 'RECEIVE_USERS',
+        data
+    }
+}
 
-export const fetchData = users => {
+export const fetchData = url => {
     return dispatch => {
-        return axios.post('./api/data.json')
+        fetch(url)
+            .then(response => response.json())
+            .then(data => dispatch(users(data)))
     }
 }

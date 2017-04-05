@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { fetchData } from '../actions/index';
 
 class List extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: []
-        }
-    }
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(data => {
-                this.state.users = data;
-                this.setState(this.state)
-            })
+        this.props.fetchData('https://jsonplaceholder.typicode.com/users');
     }
     render() {
-        console.log(this.state)
         return (
             <main className="app_list">
                 <ul>
-                    {this.state.users.map(item =>
-                        <li key={item.id}>{item.name}</li>
+                    {this.props.users.map(item =>
+                        <li className="app_list_item" key={item.id}>{item.name}</li>
                     )}
                 </ul>
             </main>
@@ -30,10 +19,22 @@ class List extends Component {
     }
 }
 
+List.PropTypes = {
+    fetchData: PropTypes.func.isRequered
+}
+
 const mapStateToProps = state => {
     return {
-        users: state.list.filter(item => item.name.includes(state.filter))
+        users: state.users.filter(item => item.name.includes(state.filter))
     }
 };
 
-export default connect(mapStateToProps)(List);
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchData: url => {
+            dispatch(fetchData(url))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
