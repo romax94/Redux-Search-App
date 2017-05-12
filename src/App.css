@@ -26,3 +26,17 @@
     font-size: 20px;
     list-style-type: none;
 }
+.app_toolBar_wrapper {
+    padding: 15px 0;
+}
+.app_sortByName {
+    display: inline-block;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}

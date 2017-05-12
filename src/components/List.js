@@ -25,7 +25,7 @@ List.PropTypes = {
 
 const mapStateToProps = state => {
     return {
-        users: state.users.filter(item => item.name.includes(state.filter))
+        users: state.users.filter(item => item.name.toLowerCase().includes(state.filter.toLowerCase()))
     }
 };
 

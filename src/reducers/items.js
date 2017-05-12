@@ -15,3 +15,12 @@ export const users = (state = [], action) => {
             return state;
     }
 }
+
+export const sort = (state = '', action) => {
+    switch (action.type) {
+        case 'SORT':
+            return action.payload;
+        default:
+            return state;
+    }
+}

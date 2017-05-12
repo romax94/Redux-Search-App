@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
     render() {
         return (
             <aside className="app_sidebar">
@@ -8,3 +9,11 @@ export default class Sidebar extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        activeUser: state.users[0]
+    }
+}
+
+export default connect(mapStateToProps)(Sidebar);

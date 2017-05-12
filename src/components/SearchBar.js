@@ -20,12 +20,6 @@ class SearchBar extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        store: state
-    }
-};
-
 const mapDispatchToProps = dispatch => {
     return {
         onSearchList: name => {
@@ -37,4 +31,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);
