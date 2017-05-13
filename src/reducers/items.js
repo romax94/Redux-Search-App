@@ -1,26 +1,22 @@
-export const filter = (state = '', action) => {
+let initialState = {
+    users: [],
+    filterText: '',
+    activeUser: []
+};
+
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'FILTER':
-            return action.payload;
+            return {
+                ...state,
+                filterText: action.payload
+            }
+        case 'RECEIVE_USERS':
+            return {
+                ...state,
+                users: action.data
+            }
         default:
             return state;
     }
 };
-
-export const users = (state = [], action) => {
-    switch (action.type) {
-        case 'RECEIVE_USERS':
-            return action.data
-        default:
-            return state;
-    }
-}
-
-export const sort = (state = '', action) => {
-    switch (action.type) {
-        case 'SORT':
-            return action.payload;
-        default:
-            return state;
-    }
-}

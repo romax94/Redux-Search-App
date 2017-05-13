@@ -25,7 +25,7 @@ List.PropTypes = {
 
 const mapStateToProps = state => {
     return {
-        users: state.users.filter(item => item.name.toLowerCase().includes(state.filter.toLowerCase()))
+        users: state.reducer.users.filter(item => item.name.toLowerCase().includes(state.reducer.filterText.toLowerCase()))
     }
 };
 
@@ -35,6 +35,6 @@ const mapDispatchToProps = dispatch => {
             dispatch(fetchData(url))
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

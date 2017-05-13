@@ -3,7 +3,7 @@ export const users = data => {
         type: 'RECEIVE_USERS',
         data
     }
-}
+};
 
 export const fetchData = url => {
     return dispatch => {
@@ -11,4 +11,4 @@ export const fetchData = url => {
             .then(response => response.json())
             .then(data => dispatch(users(data)))
     }
-}
+};

@@ -12,7 +12,7 @@ class Sidebar extends Component {
 
 const mapStateToProps = state => {
     return {
-        activeUser: state.users[0]
+        activeUser: state.reducer.users
     }
 }
 

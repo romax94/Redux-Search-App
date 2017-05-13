@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { filter, users, sort } from './items';
+import { reducer } from './items';
 
 export default combineReducers({
-    filter,
-    users,
-    sort
+    reducer
 });
