@@ -1,4 +1,4 @@
-# React-Redux-Search-App
+# Redux-Search-App
 Search App with async receipt users, filter input and sorting.
 
 ## Technologies:
