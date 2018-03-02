@@ -1,7 +1,6 @@
 let initialState = {
     users: [],
-    filterText: '',
-    activeUser: []
+    filterText: ''
 };
 
 export const reducer = (state = initialState, action) => {
@@ -15,6 +14,12 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.data
+            }
+        case 'SORT_BY_ID':
+            let sortById = state.users.sort((a, b) => a.id + b.id);
+            return {
+                ...state,
+                users: sortById
             }
         default:
             return state;

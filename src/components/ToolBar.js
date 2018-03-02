@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class ToolBar extends Component {
     sortByName() {
-        this.props.onSortByName();
+        this.props.onSortById();
     }
     render() {
         return(
@@ -16,12 +16,9 @@ class ToolBar extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSortByName: () => {
+        onSortById: () => {
             dispatch({
-                type: 'SORT',
-                payload: {
-                    name: 'roma'
-                }
+                type: 'SORT_BY_ID'
             })
         }
     }

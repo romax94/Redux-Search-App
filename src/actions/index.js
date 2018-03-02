@@ -6,7 +6,7 @@ export const users = data => {
 };
 
 export const fetchData = url => {
-    return dispatch => {
+    return (dispatch, getState) => {
         fetch(url)
             .then(response => response.json())
             .then(data => dispatch(users(data)))

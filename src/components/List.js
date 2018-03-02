@@ -1,17 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from '../actions/index';
 
 class List extends Component {
-    componentDidMount() {
-        this.props.fetchData('https://jsonplaceholder.typicode.com/users');
-    }
     render() {
         return (
             <main className="app_list">
                 <ul>
                     {this.props.users.map(item =>
-                        <li className="app_list_item" key={item.id}>{item.name}</li>
+                        <li className="app_list_item" key={item.id}>
+                            <span className="app_item_id">{item.id}</span>
+                            <span>{item.name}</span>
+                        </li>
                     )}
                 </ul>
             </main>
@@ -29,12 +28,4 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchData: url => {
-            dispatch(fetchData(url))
-        }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps)(List);

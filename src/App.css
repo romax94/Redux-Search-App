@@ -40,3 +40,8 @@
     text-align: center;
     cursor: pointer;
 }
+.app_item_id {
+    display: inline-block;
+    width: 50px;
+    color: red;
+}

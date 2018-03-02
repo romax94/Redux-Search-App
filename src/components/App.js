@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 import ToolBar from './ToolBar';
 import Sidebar from './Sidebar';
 import List from './List';
-import '../App.css';
+import { fetchData } from '../actions/index';
 
-export default class APP extends Component {
+class APP extends Component {
+    componentDidMount() {
+        this.props.fetchData('https://jsonplaceholder.typicode.com/users');
+    }
     render() {
         return (
             <div className="app_wrapper">
@@ -21,3 +25,13 @@ export default class APP extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchData: url => {
+            dispatch(fetchData(url))
+        }
+    }
+};
+
+export default connect(null, mapDispatchToProps)(APP);
